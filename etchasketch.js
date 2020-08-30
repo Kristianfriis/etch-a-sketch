@@ -26,7 +26,11 @@ function createGrid(pixels){
 
 function getDivs() {
     const divs = document.getElementsByClassName('tile');
-    console.log(divs)
+    l = divs.length;
+    for (let k = 0; k < l; k++) {
+        const element = array[k];   
+        
+    }
     divs.forEach((div) => {
     div.addEventListener('click', () => {
         alert(div.classList)
