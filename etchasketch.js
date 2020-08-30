@@ -1,15 +1,37 @@
-
+const app = document.getElementById("app");
+const etchFixedSize = 300;
 
 function createGrid(pixels){
-    const app = document.getElementById("app");
+
     let width = pixels;
     let height = pixels;
-    for (let i = 0; i < width; i++) {
-        for (let j = 0; j < height; j++) {
+    let widthHeight = etchFixedSize / pixels;
+    console.log(widthHeight)
+    for (let i = 0; i < height; i++) {
+        let outerDiv = document.createElement('div');
+        outerDiv.classList.add(`rowDiv-${i}`);
+        app.appendChild(outerDiv);
+        for (let j = 0; j < width; j++) {
             let div = document.createElement('div');
-            div.classList.add(`tile-${i}${j}`)
-            app.appendChild(div)
+            // div.classList.add(`tile-${i}${j}`);
+            div.classList.add(`tile`)
+            // div.style.cssText = `width: ${widthHeight}; height: ${widthHeight};`
+            div.style.cssText = `width: ${widthHeight-1.5}px; height: ${widthHeight-1.5}px;`
+            outerDiv.appendChild(div);
         }
         
     }
+    getDivs();
 }
+
+function getDivs() {
+    const divs = document.getElementsByClassName('tile');
+    console.log(divs)
+    divs.forEach((div) => {
+    div.addEventListener('click', () => {
+        alert(div.classList)
+    })
+});
+}
+
+
